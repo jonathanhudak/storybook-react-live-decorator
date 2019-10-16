@@ -11,7 +11,10 @@ const jsxStringOptions = {
 
 const preference = localStorage.getItem("editor-theme-light");
 
-export default function withLiveEdit(providedScope, { noInline = false } = {}) {
+export default function withLiveEdit(
+  providedScope,
+  { code, noInline = false } = {}
+) {
   const scope = {
     React,
     ...providedScope
@@ -26,9 +29,10 @@ export default function withLiveEdit(providedScope, { noInline = false } = {}) {
         return nextValue;
       });
     };
-    const code = reactElementToJSXString(storyFn(), jsxStringOptions);
+    const editorCode =
+      code || reactElementToJSXString(storyFn(), jsxStringOptions);
     return (
-      <LiveProvider code={code} scope={scope} noInline={noInline}>
+      <LiveProvider code={editorCode} scope={scope} noInline={noInline}>
         <LivePreview />
         <LiveError />
         <LiveEditor theme={lightEnabled ? light : dark} />
