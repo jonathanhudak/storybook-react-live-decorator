@@ -1,0 +1,36 @@
+{
+  "name": "@jmhudak/storybook-react-live-decorator",
+  "version": "0.1.0",
+  "description": "A decorator to make story components editable",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook",
+    "deploy-storybook": "storybook-to-ghpages"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jonathanhudak/storybook-live-edit-decorator.git"
+  },
+  "author": "Jonathan Hudak",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jonathanhudak/storybook-live-edit-decorator/issues"
+  },
+  "homepage": "https://github.com/jonathanhudak/storybook-live-edit-decorator#readme",
+  "dependencies": {
+    "react-element-to-jsx-string": "^14.1.0",
+    "react-live": "^2.2.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.6.4",
+    "@emotion/styled": "^10.0.17",
+    "@storybook/addon-actions": "^5.2.4",
+    "@storybook/addon-links": "^5.2.4",
+    "@storybook/addons": "^5.2.4",
+    "@storybook/react": "^5.2.4",
+    "@storybook/storybook-deployer": "^2.8.1",
+    "babel-loader": "^8.0.6"
+  }
+}
