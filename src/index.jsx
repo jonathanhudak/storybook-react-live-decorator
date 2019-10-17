@@ -4,7 +4,7 @@ import { LiveProvider, LiveEditor, LiveError, LivePreview } from "react-live";
 import light from "./light";
 import dark from "./dark";
 
-const jsxStringOptions = {
+const defaultReactElementToJSXStringOptions = {
   showDefaultProps: true,
   showFunctions: true
 };
@@ -13,11 +13,22 @@ const preference = localStorage.getItem("editor-theme-light");
 
 export default function withLiveEdit(
   providedScope,
-  { code, noInline = false } = {}
+  {
+    code,
+    jsxStringOptions = {},
+    noInline = false,
+    lightTheme = light,
+    darkTheme = dark
+  } = {}
 ) {
   const scope = {
     React,
     ...providedScope
+  };
+
+  const editorCodeOptions = {
+    ...jsxStringOptions,
+    ...defaultReactElementToJSXStringOptions
   };
 
   return function LiveEditComponent(storyFn) {
@@ -30,12 +41,12 @@ export default function withLiveEdit(
       });
     };
     const editorCode =
-      code || reactElementToJSXString(storyFn(), jsxStringOptions);
+      code || reactElementToJSXString(storyFn(), editorCodeOptions);
     return (
       <LiveProvider code={editorCode} scope={scope} noInline={noInline}>
         <LivePreview />
         <LiveError />
-        <LiveEditor theme={lightEnabled ? light : dark} />
+        <LiveEditor theme={lightEnabled ? lightTheme : darkTheme} />
         <div>
           <button onClick={toggleTheme}>
             {lightEnabled ? "Dark theme" : "Light theme"}

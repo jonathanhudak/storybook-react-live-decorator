@@ -3,12 +3,15 @@
   "version": "0.1.0",
   "description": "A decorator to make story components editable",
   "main": "index.js",
+  "module": "index.esm.js",
+  "private": false,
   "scripts": {
     "start": "npm run storybook",
     "test": "echo \"Error: no test specified\" && exit 1",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
-    "deploy": "storybook-to-ghpages"
+    "deploy": "storybook-to-ghpages",
+    "build": "rollup -c"
   },
   "repository": {
     "type": "git",
@@ -21,18 +24,25 @@
   },
   "homepage": "https://github.com/jonathanhudak/storybook-live-edit-decorator#readme",
   "dependencies": {
+    "@storybook/react": "^5.2.4",
+    "react": "^16.10.2",
     "react-element-to-jsx-string": "^14.1.0",
     "react-live": "^2.2.1"
   },
   "devDependencies": {
     "@babel/core": "^7.6.4",
+    "@babel/preset-env": "^7.6.3",
+    "@babel/preset-react": "^7.6.3",
     "@emotion/styled": "^10.0.17",
     "@storybook/addon-actions": "^5.2.4",
     "@storybook/addon-docs": "^5.3.0-alpha.20",
     "@storybook/addon-links": "^5.2.4",
     "@storybook/addons": "^5.2.4",
-    "@storybook/react": "^5.2.4",
     "@storybook/storybook-deployer": "^2.8.1",
-    "babel-loader": "^8.0.6"
+    "babel-loader": "^8.0.6",
+    "rollup": "^1.24.0",
+    "rollup-plugin-babel": "^4.3.3",
+    "rollup-plugin-commonjs": "^10.1.0",
+    "rollup-plugin-peer-deps-external": "^2.2.0"
   }
 }

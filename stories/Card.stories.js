@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "@emotion/styled";
-import withLiveEdit from "..";
+import withLiveEdit from "../index.esm.js";
 
 const Card = styled.div`
   background: ghostwhite;
