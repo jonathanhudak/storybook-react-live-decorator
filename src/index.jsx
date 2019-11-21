@@ -27,8 +27,8 @@ export default function withLiveEdit(
   };
 
   const editorCodeOptions = {
+    ...defaultReactElementToJSXStringOptions,
     ...jsxStringOptions,
-    ...defaultReactElementToJSXStringOptions
   };
 
   return function LiveEditComponent(storyFn) {
