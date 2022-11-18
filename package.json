@@ -24,7 +24,7 @@
   },
   "homepage": "https://github.com/jonathanhudak/storybook-live-edit-decorator#readme",
   "dependencies": {
-    "@storybook/react": "^5.2.4",
+    "@storybook/react": "^6.5.13",
     "react": "^16.10.2",
     "react-element-to-jsx-string": "^14.1.0",
     "react-live": "^2.2.1"
